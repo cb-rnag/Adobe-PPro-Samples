@@ -49,7 +49,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				</CEFCommandLine>
 				<UI>
 					<Type>Panel</Type>
-					<Menu>PProPanel (SDK sample panel)</Menu>
+					<Menu>PProPanel-TS (SDK sample panel)</Menu>
 					<Geometry>
 						<Size>
 							<Height>300</Height>
