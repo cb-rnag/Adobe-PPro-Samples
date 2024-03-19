@@ -16,6 +16,15 @@ var colors = {
 var folderToChatFiles = {};
 
 $._M_ = {
+  importZoomChatToClips: function () {
+    var project = app.project;
+    var projectItems = project.rootItem.children;
+    var numProjectItems = projectItems.numItems;
+
+    if (numProjectItems === 0) $._M_.exitErr("Script requires a project item!");
+
+    $._M_.main(project, projectItems, numProjectItems);
+  },
   main: function (project, projectItems, numProjectItems) {
     var clip, folderPath, itemType, markers, name;
     for (var i = 0; i < numProjectItems; i++) {

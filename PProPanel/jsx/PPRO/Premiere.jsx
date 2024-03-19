@@ -84,19 +84,6 @@ var BitPrecision_HDR = 3;
 var NOT_SET = "-400000";
 
 $._PPP_ = {
-  //   myTestFunction: $._M_.main,
-  myTestFunction: function () {
-    // alert("Hello!");
-    var project = app.project;
-    var projectItems = project.rootItem.children;
-    var numProjectItems = projectItems.numItems;
-
-    if (numProjectItems === 0) $._M_.exitErr("Script requires a project item!");
-
-    $._M_.main(project, projectItems, numProjectItems);
-    // $._PPP_.updateEventPanel("Hello, this is a TEST!");
-  },
-
   getVersionInfo: function () {
     return "PPro " + app.version + "x" + app.build;
   },

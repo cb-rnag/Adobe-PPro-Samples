@@ -1,5 +1,5 @@
 function doLog() {
-  alert("He");
+  alert("Test");
 }
 
 $._Test_ = {
