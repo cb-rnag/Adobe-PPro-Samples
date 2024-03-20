@@ -14,11 +14,11 @@
 * written permission of Adobe. 
 **************************************************************************/
 -->
-<ExtensionManifest Version="4.0" ExtensionBundleId="com.adobe.PProPanel" ExtensionBundleVersion="11.1"
+<ExtensionManifest Version="4.0" ExtensionBundleId="org.collegeboard.ritviknag.zoom-chat-to-markers" ExtensionBundleVersion="11.1"
 ExtensionBundleName="Premiere Pro sample panel" 
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<ExtensionList>
-		<Extension Id="com.adobe.PProPanel" Version="10.3.0" />
+		<Extension Id="org.collegeboard.ritviknag.zoom-chat-to-markers" Version="10.3.0" />
 	</ExtensionList>
 	<ExecutionEnvironment>
 		<HostList>
@@ -33,7 +33,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	</ExecutionEnvironment>
 
 	<DispatchInfoList>
-		<Extension Id="com.adobe.PProPanel">
+		<Extension Id="org.collegeboard.ritviknag.zoom-chat-to-markers">
 			<DispatchInfo >
 				<Resources>
 					<MainPath>./dom_html/src/index.html</MainPath>

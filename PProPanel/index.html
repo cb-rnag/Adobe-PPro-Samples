@@ -82,36 +82,36 @@
 				}
 			});
 
-			$("#toggleproxy").on("click", function (e) {
-				e.preventDefault();
-				var csInterface = new CSInterface();
-				csInterface.evalScript('$._PPP_.toggleProxyState()', mySetProxyFunction);
-				// csInterface.evalScript('$._PPP_.getProjectProxySetting()', myGetProxyFunction);
-			});
+			// $("#toggleproxy").on("click", function (e) {
+			// 	e.preventDefault();
+			// 	var csInterface = new CSInterface();
+			// 	csInterface.evalScript('$._PPP_.toggleProxyState()', mySetProxyFunction);
+			// 	// csInterface.evalScript('$._PPP_.getProjectProxySetting()', myGetProxyFunction);
+			// });
 
-			$("#checkforums").on("click", function (e) {
-				e.preventDefault();
-				var csInterface = new CSInterface();
-				csInterface.openURLInDefaultBrowser("https://forums.adobe.com/community/premiere/sdk");
-			});
+			// $("#checkforums").on("click", function (e) {
+			// 	e.preventDefault();
+			// 	var csInterface = new CSInterface();
+			// 	csInterface.openURLInDefaultBrowser("https://forums.adobe.com/community/premiere/sdk");
+			// });
 
-			$("#openfolder").on("click", function (e) {
-				e.preventDefault();
-				var csInterface = new CSInterface();
-				var OSVersion = csInterface.getOSInformation();
-				var path = csInterface.getSystemPath(SystemPath.EXTENSION);
-
-				if (OSVersion) {
-					// The path always comes back with '/' path separators. Windows needs '\\'.
-					if (OSVersion.indexOf("Windows") >= 0) {
-						var sep = '\\';
-						path = path.replace(/\//g, sep);
-						window.cep.process.createProcess('C:\\Windows\\explorer.exe', path);
-					} else {
-						window.cep.process.createProcess('/usr/bin/open', path);
-					}
-				}
-			});
+			// $("#openfolder").on("click", function (e) {
+			// 	e.preventDefault();
+			// 	var csInterface = new CSInterface();
+			// 	var OSVersion = csInterface.getOSInformation();
+			// 	var path = csInterface.getSystemPath(SystemPath.EXTENSION);
+			//
+			// 	if (OSVersion) {
+			// 		// The path always comes back with '/' path separators. Windows needs '\\'.
+			// 		if (OSVersion.indexOf("Windows") >= 0) {
+			// 			var sep = '\\';
+			// 			path = path.replace(/\//g, sep);
+			// 			window.cep.process.createProcess('C:\\Windows\\explorer.exe', path);
+			// 		} else {
+			// 			window.cep.process.createProcess('/usr/bin/open', path);
+			// 		}
+			// 	}
+			// });
 			
 			$("#openlogfilefolder").on("click", function (e) { 
 				e.preventDefault();
@@ -358,32 +358,13 @@
 	<a href="javascript:history.go(0)">Refresh panel</a>
 	<p id="username">[uninitialized]</p>
 	<p id="version_string">[uninitialized]</p>
-	<p id="active_seq">[uninitialized]</p>
+	<!-- <p id="active_seq">[uninitialized]</p> -->
 	<!-- <p id="proxies_on">Proxies enabled for sequence: </p> -->
 
 	<div>
 		<h2>Clip Markers</h2>
-		<button class="controlBg textStyle" id="btn_PPRO87" onClick="evalScript('$._M_.importZoomChatToClips()')">Import Zoom Chat to Clips</button>
+		<button class="controlBg textStyle" id="btn_PPRO87" onClick="evalScript('$._M_.importZoomChatToClips()')">Import Zoom Chat</button>
 	</div>
-
-	<div>
-		<h2>New in 23.0!</h2>
-		<button class="controlBg textStyle" id="btn_PPRO87" onClick="evalScript('$._PPP_.importSrtAddToCaptionTrack()')">Import .srt file & add to new caption track</button>
-	</div>
-	
-	<div>
-		<h2>New in 22.0.0!</h2>
-	</div>
-
-	<button class="controlBg textStyle" id="btn_PPRO84" onClick="evalScript('$._PPP_.enableAllDisabledClips()')">Enable all disabled clips in sequence</button>
-	<button class="controlBg textStyle" id="btn_PPRO85" onClick="evalScript('$._PPP_.showColorspaceInEvents()')">Show Clip Colorspace in Events</button>
-	<button class="controlBg textStyle" id="btn_PPRO86" onClick="evalScript('$._PPP_.moveTrackItemOnTimeline()')">Move Clip 13 Seconds on Timeline</button>
-	
-	<div>
-		<h2>New in 14.3.1!</h2>
-	</div>
-
-	<button class="controlBg textStyle" id="btn_PPRO81" onClick="evalScript('$._PPP_.performSceneEditDetectionOnSelection()')">Detect cuts in active sequence</button>
 
 	<div>
 		<h2>New in 14.1!</h2>
@@ -433,13 +414,13 @@
 		<h2>System</h2>
 	</div>
 	<div id="section1" class="sectionID">
-		<button class="controlBg textStyle" id="btn_PPRO33" onClick="evalScript('$._PPP_.closeFrontSourceClip()')">Close front-most Source monitor clip</button>
-		<button class="controlBg textStyle" id="btn_PPRO35" onClick="evalScript('$._PPP_.closeAllClipsInSourceMonitor()')">Close all clips in Source monitor</button>
-		<button id="openfolder">Open PProPanel folder</button>
+<!--		<button class="controlBg textStyle" id="btn_PPRO33" onClick="evalScript('$._PPP_.closeFrontSourceClip()')">Close front-most Source monitor clip</button>-->
+<!--		<button class="controlBg textStyle" id="btn_PPRO35" onClick="evalScript('$._PPP_.closeAllClipsInSourceMonitor()')">Close all clips in Source monitor</button>-->
+<!--		<button id="openfolder">Open PProPanel folder</button>-->
 		<button id="openlogfilefolder">Open Premiere Pro's Log Files folder</button>
-		<button class="controlBg textStyle" id="btn_PPRO7" onClick="evalScript('$._PPP_.pokeAnywhere()')">Detect Anywhere Server</button>
-		<button class="controlBg textStyle" id="btn_PPRO71" onClick="evalScript('$._PPP_.enumerateTeamProjects()')">Identify open Team Projects</button>
-		<button id="checkforums">Check SDK Forums</button>
+<!--		<button class="controlBg textStyle" id="btn_PPRO7" onClick="evalScript('$._PPP_.pokeAnywhere()')">Detect Anywhere Server</button>-->
+<!--		<button class="controlBg textStyle" id="btn_PPRO71" onClick="evalScript('$._PPP_.enumerateTeamProjects()')">Identify open Team Projects</button>-->
+<!--		<button id="checkforums">Check SDK Forums</button>-->
 		<button id="readAPIdocs">Read API documentation</button>
 		<button id="copypresets">Copy Presets</button>
 		<button class="controlBg textStyle" id="btn_PPRO18" onClick="evalScript('$._PPP_.getnumAEProjectItems()')">AE project item count</button>
@@ -462,13 +443,13 @@
 		<button class="controlBg textStyle" id="btn_PPRO24" onClick="evalScript('$._PPP_.setProxiesON()')">Add proxy to first projItem</button>
 		<p> </p>
 		<p> </p>
-		<div id="dragthing" draggable="true" ondragstart="dragHandler(event)">Drag and drop import</div>
+		<!-- <div id="dragthing" draggable="true" ondragstart="dragHandler(event)">Drag and drop import</div> -->
 	</div>
 	<div>
 		<h2>Metadata and Project manipulation</h2>
 	</div>
 	<div id="section3" class="sectionID">
-		<button id="toggleproxy">Toggle proxies in active project</button>
+<!--		<button id="toggleproxy">Toggle proxies in active project</button>-->
 		<button class="controlBg textStyle" id="btn_PPRO9" onClick="evalScript('$._PPP_.replaceMedia()')">Replace media...</button>
 		<button class="controlBg textStyle" id="btn_PPRO10" onClick="evalScript('$._PPP_.createSequenceMarkers()')">Add sequence markers</button>
 		<button class="controlBg textStyle" id="btn_PPRO16" onClick="evalScript('$._PPP_.addClipMarkers()')">Add clip markers</button>

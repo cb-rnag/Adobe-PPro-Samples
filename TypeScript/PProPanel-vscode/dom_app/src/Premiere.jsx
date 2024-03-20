@@ -25,7 +25,7 @@ $._PPP_={
 	},
 
 	keepPanelLoaded : function() {
-		app.setExtensionPersistent("com.adobe.PProPanel", 0); // 0, while testing (to enable rapid reload); 1 for ready-to-ship.
+		app.setExtensionPersistent("org.collegeboard.ritviknag.zoom-chat-to-markers", 0); // 0, while testing (to enable rapid reload); 1 for ready-to-ship.
 	},
 
 	updateGrowingFile : function() {

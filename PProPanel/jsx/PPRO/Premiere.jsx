@@ -99,7 +99,10 @@ $._PPP_ = {
   },
 
   keepPanelLoaded: function () {
-    app.setExtensionPersistent("com.adobe.PProPanel", 0); // 0, while testing (to enable rapid reload); 1 for "Never unload me, even when not visible."
+    app.setExtensionPersistent(
+      "org.collegeboard.ritviknag.zoom-chat-to-markers",
+      0
+    ); // 0, while testing (to enable rapid reload); 1 for "Never unload me, even when not visible."
   },
 
   updateAllProjectItems: function () {
@@ -1073,23 +1076,23 @@ $._PPP_ = {
     return production;
   },
 
-  pokeAnywhere: function () {
-    var token = app.anywhere.getAuthenticationToken();
-    var productionList = app.anywhere.listProductions();
-    if (app.anywhere.isProductionOpen()) {
-      var sessionURL = app.anywhere.getCurrentEditingSessionURL();
-      var selectionURL = app.anywhere.getCurrentEditingSessionSelectionURL();
-      var activeSequenceURL =
-        app.anywhere.getCurrentEditingSessionActiveSequenceURL();
-      var theOneIAskedFor = $._PPP_.getProductionByName("test");
-      if (theOneIAskedFor) {
-        var out = theOneIAskedFor.name + ", " + theOneIAskedFor.description;
-        $._PPP_.updateEventPanel("Found: " + out); // todo: put useful code here.
-      }
-    } else {
-      $._PPP_.updateEventPanel("No Production open.");
-    }
-  },
+  // pokeAnywhere: function () {
+  //   var token = app.anywhere.getAuthenticationToken();
+  //   var productionList = app.anywhere.listProductions();
+  //   if (app.anywhere.isProductionOpen()) {
+  //     var sessionURL = app.anywhere.getCurrentEditingSessionURL();
+  //     var selectionURL = app.anywhere.getCurrentEditingSessionSelectionURL();
+  //     var activeSequenceURL =
+  //       app.anywhere.getCurrentEditingSessionActiveSequenceURL();
+  //     var theOneIAskedFor = $._PPP_.getProductionByName("test");
+  //     if (theOneIAskedFor) {
+  //       var out = theOneIAskedFor.name + ", " + theOneIAskedFor.description;
+  //       $._PPP_.updateEventPanel("Found: " + out); // todo: put useful code here.
+  //     }
+  //   } else {
+  //     $._PPP_.updateEventPanel("No Production open.");
+  //   }
+  // },
 
   dumpOMF: function () {
     var activeSequence = app.project.activeSequence;
@@ -2046,13 +2049,13 @@ $._PPP_ = {
     }
   },
 
-  closeFrontSourceClip: function () {
-    app.sourceMonitor.closeClip();
-  },
-
-  closeAllClipsInSourceMonitor: function () {
-    app.sourceMonitor.closeAllClips();
-  },
+  // closeFrontSourceClip: function () {
+  //   app.sourceMonitor.closeClip();
+  // },
+  //
+  // closeAllClipsInSourceMonitor: function () {
+  //   app.sourceMonitor.closeAllClips();
+  // },
 
   changeLabel: function () {
     var first = app.project.rootItem.children[0];
@@ -2558,7 +2561,7 @@ $._PPP_ = {
     );
 
     if (previousLogFilesValue === "true") {
-      $._PPP_.updateEventPanel("Force create Log files was already ON.");
+      // $._PPP_.updateEventPanel("Force create Log files was already ON.");
     } else {
       qe.setDebugDatabaseEntry("CreateLogFilesThatDoNotExist", "true");
       $._PPP_.updateEventPanel("Set Force create Log files to ON.");
@@ -3087,29 +3090,29 @@ $._PPP_ = {
     );
   },
 
-  enumerateTeamProjects: function () {
-    var numTeamProjectsOpen = 0;
-    for (var i = 0; i < app.projects.numProjects; i++) {
-      var project = app.projects[i];
-      if (project.isCloudProject) {
-        numTeamProjectsOpen++;
-        $._PPP_.updateEventPanel(project.name + " is a cloud-based project.");
-        var localHubID = project.cloudProjectLocalID;
-        $._PPP_.updateEventPanel("LocalHub Id is " + localHubID + ".");
-        var production = qe.ea.getProductionByID(localHubID);
-        $._PPP_.updateEventPanel("Production Name is " + production.name + ".");
-        var remoteID = production.getRemoteProductionID();
-        $._PPP_.updateEventPanel("Remote Production Id is " + remoteID + ".");
-      }
-    }
-    if (numTeamProjectsOpen === 0) {
-      $._PPP_.updateEventPanel("No open Team Projects found.");
-    } else {
-      $._PPP_.updateEventPanel(
-        numTeamProjectsOpen + " open Team Projects Team Projects found."
-      );
-    }
-  },
+  // enumerateTeamProjects: function () {
+  //   var numTeamProjectsOpen = 0;
+  //   for (var i = 0; i < app.projects.numProjects; i++) {
+  //     var project = app.projects[i];
+  //     if (project.isCloudProject) {
+  //       numTeamProjectsOpen++;
+  //       $._PPP_.updateEventPanel(project.name + " is a cloud-based project.");
+  //       var localHubID = project.cloudProjectLocalID;
+  //       $._PPP_.updateEventPanel("LocalHub Id is " + localHubID + ".");
+  //       var production = qe.ea.getProductionByID(localHubID);
+  //       $._PPP_.updateEventPanel("Production Name is " + production.name + ".");
+  //       var remoteID = production.getRemoteProductionID();
+  //       $._PPP_.updateEventPanel("Remote Production Id is " + remoteID + ".");
+  //     }
+  //   }
+  //   if (numTeamProjectsOpen === 0) {
+  //     $._PPP_.updateEventPanel("No open Team Projects found.");
+  //   } else {
+  //     $._PPP_.updateEventPanel(
+  //       numTeamProjectsOpen + " open Team Projects Team Projects found."
+  //     );
+  //   }
+  // },
 
   enableWorkArea: function (enable) {
     var seq = app.project.activeSequence;
@@ -3160,9 +3163,9 @@ $._PPP_ = {
 
   setLocale: function (localeFromCEP) {
     $.locale = localeFromCEP;
-    $._PPP_.updateEventPanel(
-      "ExtendScript Locale set to " + localeFromCEP + "."
-    );
+    // $._PPP_.updateEventPanel(
+    //   "ExtendScript Locale set to " + localeFromCEP + "."
+    // );
   },
 
   disableTranscodeOnIngest: function (newValue) {
@@ -3422,31 +3425,6 @@ $._PPP_ = {
     }
   },
 
-  performCutDetection: function () {
-    var activeSeq = app.project.activeSequence;
-    if (activeSeq) {
-      var sel = activeSeq.getSelection();
-      if (sel) {
-        var action = "ApplyCuts"; //'ApplyCuts', 'CreateMarkers'
-        var shouldApplyCutsToLinkedAudio = true;
-        var sensitivity = "LowSensitivity"; //'LowSensitivity', 'MediumSensitivity', 'HighSensitivity'
-        var result = activeSeq.performSceneEditDetectionOnSelection(
-          action,
-          shouldApplyCutsToLinkedAudio,
-          sensitivity
-        );
-      } else {
-        $._PPP_.updateEventPanel(
-          "performSceneEditDetectionOnSelection: Nothing selected, in sequence."
-        );
-      }
-    } else {
-      $._PPP_.updateEventPanel(
-        "performSceneEditDetectionOnSelection: No active sequence."
-      );
-    }
-  },
-
   newSequenceFromProjectSelection: function () {
     var viewIDs = app.getProjectViewIDs();
     var viewSelection = app.getProjectViewSelection(viewIDs[0]); // sample code optimized for a single open project
@@ -3487,220 +3465,6 @@ $._PPP_ = {
       $._PPP_.updateEventPanel(
         "Could not obtain valid white luminance values."
       );
-    }
-  },
-
-  enableAllDisabledClips: function () {
-    var clips = app.project.sequences[0].videoTracks[0].clips;
-    var numClips = clips.numItems;
-    for (var i = 0; i < numClips; i++) {
-      var currentClip = clips[i];
-      if (currentClip) {
-        if (currentClip.disabled === true) {
-          //using new trackItem property, disabled
-          currentClip.disabled = false;
-        }
-      }
-    }
-  },
-
-  showColorspaceInEvents: function () {
-    var colorSpace = app.project.rootItem.children[0].getColorSpace();
-    var origColorSpace =
-      app.project.rootItem.children[0].getOriginalColorSpace();
-    var lutID = app.project.rootItem.children[0].getEmbeddedLUTID();
-    var inputLutID = app.project.rootItem.children[0].getInputLUTID();
-
-    //get the color space info and record it in the events panel
-    if (colorSpace) {
-      if (origColorSpace) {
-        if (lutID) {
-          if (inputLutID) {
-            app.setSDKEventMessage(
-              "Color Space " + " = " + colorSpace.name,
-              "info"
-            );
-            app.setSDKEventMessage(
-              "Transfer Characteristic " +
-                " = " +
-                colorSpace.transferCharacteristic,
-              "info"
-            );
-            app.setSDKEventMessage(
-              "Color Primaries " + " = " + colorSpace.primaries,
-              "info"
-            );
-            app.setSDKEventMessage(
-              "Matrix Equation " + " = " + colorSpace.matrixEquation,
-              "info"
-            );
-
-            app.setSDKEventMessage(
-              "Original Color Space " + " = " + origColorSpace.name,
-              "info"
-            );
-            app.setSDKEventMessage(
-              "Original Transfer Characteristic " +
-                " = " +
-                origColorSpace.transferCharacteristic,
-              "info"
-            );
-            app.setSDKEventMessage(
-              "Original Color Primaries " + " = " + origColorSpace.primaries,
-              "info"
-            );
-            app.setSDKEventMessage(
-              "Original Matrix Equation " +
-                " = " +
-                origColorSpace.matrixEquation,
-              "info"
-            );
-
-            app.setSDKEventMessage("LutID " + " = " + lutID, "info");
-            app.setSDKEventMessage("input LutID " + " = " + inputLutID, "info");
-          } else {
-            alert("Input LUT ID not found.");
-          }
-        } else {
-          alert("LUT ID not found.");
-        }
-      } else {
-        alert("Original colorspace not available.");
-      }
-    } else {
-      alert("No colorspace available.");
-    }
-    //get the color space info and record it in the events panel
-    if (colorSpace) {
-      if (origColorSpace) {
-        if (lutID) {
-          if (inputLutID) {
-            app.setSDKEventMessage(
-              "Color Space " + " = " + colorSpace.name,
-              "info"
-            );
-            app.setSDKEventMessage(
-              "Transfer Characteristic " +
-                " = " +
-                colorSpace.transferCharacteristic,
-              "info"
-            );
-            app.setSDKEventMessage(
-              "Color Primaries " + " = " + colorSpace.primaries,
-              "info"
-            );
-            app.setSDKEventMessage(
-              "Matrix Equation " + " = " + colorSpace.matrixEquation,
-              "info"
-            );
-
-            app.setSDKEventMessage(
-              "Original Color Space " + " = " + origColorSpace.name,
-              "info"
-            );
-            app.setSDKEventMessage(
-              "Original Transfer Characteristic " +
-                " = " +
-                origColorSpace.transferCharacteristic,
-              "info"
-            );
-            app.setSDKEventMessage(
-              "Original Color Primaries " + " = " + origColorSpace.primaries,
-              "info"
-            );
-            app.setSDKEventMessage(
-              "Original Matrix Equation " +
-                " = " +
-                origColorSpace.matrixEquation,
-              "info"
-            );
-
-            app.setSDKEventMessage("LutID " + " = " + lutID, "info");
-            app.setSDKEventMessage("input LutID " + " = " + inputLutID, "info");
-          } else {
-            alert("Input LUT ID not found.");
-          }
-        } else {
-          alert("LUT ID not found.");
-        }
-      } else {
-        alert("Original colorspace not available.");
-      }
-    } else {
-      alert("No colorspace available.");
-    }
-  },
-  moveTrackItemOnTimeline: function () {
-    app.project.sequences[0].audioTracks[0].clips[0].move(13);
-    app.project.sequences[0].videoTracks[0].clips[0].move(13);
-  },
-
-  importSrtAddToCaptionTrack: function () {
-    var destBin = app.project.getInsertionBin();
-    if (destBin) {
-      var prevItemCount = destBin.children.numItems;
-
-      var filterString = "";
-      if (Folder.fs === "Windows") {
-        filterString = "All files:*.*";
-      }
-      if (app.project) {
-        var importThese = [];
-        var fileOrFilesToImport = File.openDialog(
-          "Choose files to import", // title
-          filterString, // filter available files?
-          true
-        ); // allow multiple?
-        if (fileOrFilesToImport) {
-          // We have an array of File objects; importFiles() takes an array of paths.
-          if (importThese) {
-            for (var i = 0; i < fileOrFilesToImport.length; i++) {
-              importThese[i] = fileOrFilesToImport[i].fsName;
-            }
-            var suppressWarnings = true;
-            var importAsStills = false;
-            app.project.importFiles(
-              importThese,
-              suppressWarnings,
-              app.project.getInsertionBin(),
-              importAsStills
-            );
-          } else {
-            $._PPP_.updateEventPanel("No files to import.");
-          }
-        }
-
-        if (importThese) {
-          var newItemCount = destBin.children.numItems;
-          if (newItemCount > prevItemCount) {
-            var importedSRT = destBin.children[newItemCount - 1];
-            if (importedSRT) {
-              var activeSeq = app.project.activeSequence;
-              if (activeSeq) {
-                var startAtTime = 0;
-                var result = app.project.activeSequence.createCaptionTrack(
-                  importedSRT,
-                  startAtTime
-                );
-              } else {
-                $._PPP_.updateEventPanel("No active sequence.");
-              }
-            } else {
-              $._PPP_.updateEventPanel(
-                "Whoops, couldn't find imported .srt file."
-              );
-            }
-          } else {
-            $._PPP_.updateEventPanel("Whoa, no new item? How'd THAT happen?!");
-          }
-        } else {
-          $._PPP_.updateEventPanel(
-            "importFiles() failed to import, OR return an error message. I quit!"
-          );
-        }
-      } else {
-        $._PPP_.updateEventPanel("No destination bin available");
-      }
     }
   },
 

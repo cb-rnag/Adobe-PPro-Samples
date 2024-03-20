@@ -13,40 +13,38 @@
 **************************************************************************/
 
 * {
-	font-family: "LucidaGrande", sans-serif;
+  font-family: "LucidaGrande", sans-serif;
 }
 
 p {
-	text-align:center;
+  text-align: center;
 }
 
 a {
-        color: #8080ff;
+  color: #8080ff;
 }
 
-button
-{
-	font-size:12px;
-	border:1px solid;
-	height:20px;
+button {
+  font-size: 20px;
+  border: 1px solid;
+  height: 30px;
 }
 
-input[type=text]
-{
-	height:12px;
+input[type="text"] {
+  height: 12px;
 }
 
 #content {
-	margin-right:auto;
-	margin-left:auto;
-	vertical-align:middle;
-	width:100%;
+  margin-right: auto;
+  margin-left: auto;
+  vertical-align: middle;
+  width: 100%;
 }
 
 #content ul {
-	padding:0px;
+  padding: 0px;
 }
 
 #content ul li {
-	margin:3px 0px 3px 0px;
+  margin: 3px 0px 3px 0px;
 }

@@ -9,7 +9,6 @@ function onLoaded() {
   var appVersion = csInterface.hostEnvironment.appVersion;
   var APIVersion = csInterface.getCurrentApiVersion();
 
-  document.getElementById("dragthing").style.backgroundColor = "lightblue";
   var caps = csInterface.getHostCapabilities();
 
   loadJSX();
@@ -21,35 +20,36 @@ function onLoaded() {
     CSInterface.THEME_COLOR_CHANGED_EVENT,
     onAppThemeColorChanged
   );
-  // Listen for event sent in response to rendering a sequence.
-  csInterface.addEventListener(
-    "com.adobe.csxs.events.PProPanelRenderEvent",
-    function (event) {
-      alert(event.data);
-    }
-  );
+  // // Listen for event sent in response to rendering a sequence.
+  // csInterface.addEventListener(
+  //   "com.adobe.csxs.events.PProPanelRenderEvent",
+  //   function (event) {
+  //     alert(event.data);
+  //   }
+  // );
 
-  csInterface.addEventListener(
-    "com.adobe.csxs.events.WorkspaceChanged",
-    function (event) {
-      alert("New workspace selected: " + event.data);
-    }
-  );
+  // csInterface.addEventListener(
+  //   "com.adobe.csxs.events.WorkspaceChanged",
+  //   function (event) {
+  //     alert("New workspace selected: " + event.data);
+  //   }
+  // );
 
-  csInterface.addEventListener(
-    "com.adobe.ccx.start.handleLicenseBanner",
-    function (event) {
-      alert('User chose to go "Home", wherever that is...');
-    }
-  );
+  // csInterface.addEventListener(
+  //   "com.adobe.ccx.start.handleLicenseBanner",
+  //   function (event) {
+  //     alert('User chose to go "Home", wherever that is...');
+  //   }
+  // );
 
   csInterface.addEventListener("ApplicationBeforeQuit", function (event) {
     csInterface.evalScript("$._PPP_.closeLog()");
   });
 
   csInterface.evalScript("$._PPP_.getVersionInfo()", myVersionInfoFunction);
-  csInterface.evalScript("$._PPP_.getActiveSequenceName()", myCallBackFunction);
+  // csInterface.evalScript("$._PPP_.getActiveSequenceName()", myCallBackFunction);
   csInterface.evalScript("$._PPP_.getUserName()", myUserNameFunction);
+
   // csInterface.evalScript("$._PPP_.getProjectProxySetting()", myGetProxyFunction);
   csInterface.evalScript("$._PPP_.keepPanelLoaded()");
   csInterface.evalScript("$._PPP_.disableImportWorkspaceWithProjects()");
@@ -76,37 +76,37 @@ function onLoaded() {
   csInterface.evalScript(entireCallWithParams);
 }
 
-function dragHandler(event) {
-  var csInterface = new CSInterface();
-  var extPath = csInterface.getSystemPath(SystemPath.EXTENSION);
-  var OSVersion = csInterface.getOSInformation();
+// function dragHandler(event) {
+//   var csInterface = new CSInterface();
+//   var extPath = csInterface.getSystemPath(SystemPath.EXTENSION);
+//   var OSVersion = csInterface.getOSInformation();
 
-  /*
-		Note: PPro displays different behavior, depending on where the drag ends (and over which the panel has no control):
+//   /*
+// 		Note: PPro displays different behavior, depending on where the drag ends (and over which the panel has no control):
 
-		Project panel?	Import into project.
-		Sequence?		Import into project, add to sequence.
-		Source monitor? Open in source, but do NOT import into project.
-	
-	*/
+// 		Project panel?	Import into project.
+// 		Sequence?		Import into project, add to sequence.
+// 		Source monitor? Open in source, but do NOT import into project.
 
-  if (extPath !== null) {
-    extPath = extPath + "/payloads/test.jpg";
-    if (OSVersion.indexOf("Windows") >= 0) {
-      var sep = "\\\\";
-      extPath = extPath.replace(/\//g, sep);
-    }
-    event.dataTransfer.setData("com.adobe.cep.dnd.file.0", extPath);
-    //	event.dataTransfer.setData("com.adobe.cep.dnd.file.N", path);  N = (items to import - 1)
-  }
-}
+// 	*/
 
-function myCallBackFunction(data) {
-  // Updates seq_display with whatever ExtendScript function returns.
-  var boilerPlate = "Active Sequence: ";
-  var seq_display = document.getElementById("active_seq");
-  seq_display.innerHTML = boilerPlate + data;
-}
+//   if (extPath !== null) {
+//     extPath = extPath + "/payloads/test.jpg";
+//     if (OSVersion.indexOf("Windows") >= 0) {
+//       var sep = "\\\\";
+//       extPath = extPath.replace(/\//g, sep);
+//     }
+//     event.dataTransfer.setData("com.adobe.cep.dnd.file.0", extPath);
+//     //	event.dataTransfer.setData("com.adobe.cep.dnd.file.N", path);  N = (items to import - 1)
+//   }
+// }
+
+// function myCallBackFunction(data) {
+//   // Updates seq_display with whatever ExtendScript function returns.
+//   var boilerPlate = "Active Sequence: ";
+//   var seq_display = document.getElementById("active_seq");
+//   seq_display.innerHTML = boilerPlate + data;
+// }
 
 function myUserNameFunction(data) {
   // Updates username with whatever ExtendScript function returns.
@@ -124,11 +124,11 @@ function myUserNameFunction(data) {
 // 	}
 // }
 
-function mySetProxyFunction(data) {
-  var csInterface = new CSInterface();
-  csInterface.evalScript("$._PPP_.getActiveSequenceName()", myCallBackFunction);
-  // csInterface.evalScript("$._PPP_.getProjectProxySetting()", myGetProxyFunction);
-}
+// function mySetProxyFunction(data) {
+//   var csInterface = new CSInterface();
+//   csInterface.evalScript("$._PPP_.getActiveSequenceName()", myCallBackFunction);
+//   // csInterface.evalScript("$._PPP_.getProjectProxySetting()", myGetProxyFunction);
+// }
 
 function myVersionInfoFunction(data) {
   var v_string = document.getElementById("version_string");

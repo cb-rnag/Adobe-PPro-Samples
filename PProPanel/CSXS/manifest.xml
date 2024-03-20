@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ExtensionManifest Version="5.0" ExtensionBundleId="com.adobe.PProPanel" ExtensionBundleVersion="11.1"
+<ExtensionManifest Version="6.0" ExtensionBundleId="org.collegeboard.ritviknag.zoom-chat-to-markers" ExtensionBundleVersion="0.1.0"
 ExtensionBundleName="Premiere Pro sample panel" 
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Author>
+		<![CDATA[rnag]]>
+	</Author>
 	<ExtensionList>
-		<Extension Id="com.adobe.PProPanel" Version="10.3.0" />
+		<Extension Id="org.collegeboard.ritviknag.zoom-chat-to-markers.extension" Version="0.1.0" />
 	</ExtensionList>
 	<ExecutionEnvironment>
 		<HostList>
-			<Host Name="PPRO" Version="9.0" />
+			<Host Name="PPRO" Version="13.0" />
 		</HostList>
 		<LocaleList>
 			<Locale Code="All" />
@@ -18,7 +21,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	</ExecutionEnvironment>
 
 	<DispatchInfoList>
-		<Extension Id="com.adobe.PProPanel">
+		<Extension Id="org.collegeboard.ritviknag.zoom-chat-to-markers.extension">
 			<DispatchInfo >
 				<Resources>
 					<MainPath>./index.html</MainPath>
@@ -38,7 +41,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				</Lifecycle>
 				<UI>
 					<Type>Panel</Type>
-					<Menu>PProPanel (SDK sample panel)</Menu>
+					<Menu>Zoom Chat to Markers</Menu>
 					<Geometry>
 						<Size>
 							<Height>300</Height>
