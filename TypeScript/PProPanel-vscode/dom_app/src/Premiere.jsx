@@ -343,43 +343,6 @@ $._PPP_={
 		}	
 	},
 
-	exportFramesForMarkers : function (){
-		app.enableQE();
-		var activeSequence = app.project.activeSequence;
-		if (activeSequence) {
-			var markers			= activeSequence.markers; 
-			var markerCount		= markers.numMarkers;
-			if (markerCount > 0){
-				var firstMarker = markers.getFirstMarker();
-
-				activeSequence.setPlayerPosition(firstMarker.start.ticks);
-
-				$._PPP_.exportCurrentFrameAsPNG();
-
-				var previousMarker = 0;
-
-				if (firstMarker){
-					for(var i = 0; i < markerCount; i++){
-						if (i === 0){
-							currentMarker = markers.getNextMarker(firstMarker);
-						} else {
-							currentMarker = markers.getNextMarker(previousMarker);
-						}
-						if (currentMarker){
-							activeSequence.setPlayerPosition(currentMarker.start.ticks);
-							previousMarker = currentMarker;
-							$._PPP_.exportCurrentFrameAsPNG();
-						}
-					}
-				}
-			} else {
-				alert("No markers applied to " + activeSequence.name + ".");
-			}
-		} else {
-			alert("No active sequence.");
-		}
-	},
-
 	createSequence : function(name) {
 		var someID = "xyz123";
 		var seqName = prompt('Name of sequence?',	 '<<<default>>>', 'Sequence Naming Prompt');
