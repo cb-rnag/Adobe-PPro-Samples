@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ExtensionManifest Version="6.0" ExtensionBundleId="org.collegeboard.ritviknag.zoom-chat-to-markers" ExtensionBundleVersion="0.1.0"
+<ExtensionManifest Version="6.0" ExtensionBundleId="org.collegeboard.ritviknag.ZoomChatToMarkers" ExtensionBundleVersion="0.1.0"
 ExtensionBundleName="Premiere Pro sample panel" 
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<Author>
 		<![CDATA[rnag]]>
 	</Author>
 	<ExtensionList>
-		<Extension Id="org.collegeboard.ritviknag.zoom-chat-to-markers.extension" Version="0.1.0" />
+		<Extension Id="org.collegeboard.ritviknag.ZoomChatToMarkers.extension" Version="0.1.0" />
 	</ExtensionList>
 	<ExecutionEnvironment>
 		<HostList>
@@ -21,8 +21,11 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	</ExecutionEnvironment>
 
 	<DispatchInfoList>
-		<Extension Id="org.collegeboard.ritviknag.zoom-chat-to-markers.extension">
+		<Extension Id="org.collegeboard.ritviknag.ZoomChatToMarkers.extension">
 			<DispatchInfo >
+				<ExtensionData> 
+    				<Version>0.1.0</Version> 
+				</ExtensionData>
 				<Resources>
 					<MainPath>./index.html</MainPath>
 					<ScriptPath>./PProPanel.jsx</ScriptPath>
@@ -48,6 +51,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 							<Width>180</Width>
 						</Size>
 					</Geometry>
+					<Icons/>
 				</UI>
 			</DispatchInfo>
 		</Extension>

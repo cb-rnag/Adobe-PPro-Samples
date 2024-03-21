@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ExtensionList>
-    <Extension Id="org.collegeboard.ritviknag.zoom-chat-to-markers">
+    <Extension Id="org.collegeboard.ritviknag.ZoomChatToMarkers">
         <HostList>
             <Host Name="PPRO" Port="7777"/>
         </HostList>
