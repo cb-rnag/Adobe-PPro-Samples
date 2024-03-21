@@ -50,19 +50,11 @@ function onLoaded() {
   // csInterface.evalScript("$._PPP_.getActiveSequenceName()", myCallBackFunction);
   csInterface.evalScript("$._PPP_.getUserName()", myUserNameFunction);
 
-  // csInterface.evalScript("$._PPP_.getProjectProxySetting()", myGetProxyFunction);
   csInterface.evalScript("$._PPP_.keepPanelLoaded()");
-  csInterface.evalScript("$._PPP_.disableImportWorkspaceWithProjects()");
+  // csInterface.evalScript("$._PPP_.registerItemAddedFxn()"); // Item added to project
   // TODO Remove, I comment this out, it's annoying
-  //   csInterface.evalScript("$._PPP_.registerProjectPanelSelectionChangedFxn()"); // Project panel selection changed
-  csInterface.evalScript("$._PPP_.registerItemAddedFxn()"); // Item added to project
-  // TODO Remove, I comment this out, it's annoying
-  //   csInterface.evalScript("$._PPP_.registerProjectChangedFxn()"); // Project changed
-  //   csInterface.evalScript("$._PPP_.registerSequenceSelectionChangedFxn()"); // Selection within the active sequence changed
-  csInterface.evalScript("$._PPP_.registerSequenceActivatedFxn()"); // The active sequence changed
-  csInterface.evalScript("$._PPP_.registerActiveSequenceStructureChangedFxn()"); // Clips within the active sequence changed
-  csInterface.evalScript("$._PPP_.registerItemsAddedToProjectFxn()"); // register for message, whenever something is added to the active project
-  csInterface.evalScript("$._PPP_.registerSequenceMessaging()");
+  // csInterface.evalScript("$._PPP_.registerSequenceActivatedFxn()"); // The active sequence changed
+  // csInterface.evalScript("$._PPP_.registerItemsAddedToProjectFxn()"); // register for message, whenever something is added to the active project
   //   csInterface.evalScript("$._PPP_.registerActiveSequenceChangedFxn()");
   csInterface.evalScript("$._PPP_.confirmPProHostVersion()");
   csInterface.evalScript("$._PPP_.forceLogfilesOn()"); // turn on log files when launching
