@@ -12,13 +12,34 @@ cd PPro-Extension-Zoom-Chat-To-Markers
 sudo ln -s "${PWD}/ZoomChatToMarkers" "/Library/Application Support/Adobe/CEP/extensions/ZoomChatToMarkers"
 ```
 
-### Cert Password
+Open a sample project in Adobe Premiere Pro.
+
+Select the extension in the top menu bar, `Window > Extensions > Zoom Chat to Markers`. You should see a window pane pop up.
+
+Open the project in an IDE.
+
+Make a change to the UI in `ZoomChatToMarkers/index.html`, and hit “Refresh Panel” in the extension popup window.
+You should see new UI changes reflected in Premiere.
+
+You are now set for development!
+
+### Publish to Adobe Exchange
+
+#### Cert Password
 
 Certificate Password is saved in SSM Parameter in our `apdaily-prod` AWS account.
 
 It is saved under [`/adobe/extension/zoom-chat-to-markers/cert-password`](https://us-east-1.console.aws.amazon.com/systems-manager/parameters/%2Fadobe%2Fextension%2Fzoom-chat-to-markers%2Fcert-password/description?region=us-east-1).
 
 Copy the password and save it to a `.password` file.
+
+#### Build `.zxp` File
+
+If publishing a new version, update the version number in the `CSXS/manifest.xml` file.
+
+Run the `build.sh` script to package the plugin directory into a `ZoomChatToMarkers.zxp` file.
+
+Create a new version for the plugin, and upload the `.zxp` file [here](https://developer.adobe.com/distribute/listings/1940358/ZXP/201500/overview).
 
 ## Sample extensions
 
