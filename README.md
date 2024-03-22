@@ -1,14 +1,30 @@
 # Zoom Chat to Markers
 
+> [Confluence Wiki on Development](https://collegeboard.atlassian.net/wiki/spaces/ITP/pages/266895773/Dev+on+Premiere+Pro+Panel+Zoom+Chat+to+Markers)
+
 ## Setup
 
 ### Development
 
+Follow steps outlined in this [`README.md`](https://github.com/cb-rnag/PPro-Extension-Zoom-Chat-To-Markers/blob/main/ZoomChatToMarkers/ReadMe.md).
+
 Download and checkout the project, then `cd` into the project folder and create a symlink using the `ZoomChatToMarkers/` folder to the directory where Adobe Premiere searches for extensions:
+
+Clone the project with `git`:
 
 ```sh
 git clone https://github.com/cb-rnag/PPro-Extension-Zoom-Chat-To-Markers.git
+```
+
+cd into the project directory:
+
+```sh
 cd PPro-Extension-Zoom-Chat-To-Markers
+```
+
+Create a symlink using the `ZoomChatToMarkers/` folder to the directory where Adobe Premiere searches for extensions:
+
+```sh
 sudo ln -s "${PWD}/ZoomChatToMarkers" "/Library/Application Support/Adobe/CEP/extensions/ZoomChatToMarkers"
 ```
 
