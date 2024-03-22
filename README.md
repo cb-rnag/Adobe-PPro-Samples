@@ -8,8 +8,6 @@
 
 Follow steps outlined in this [`README.md`](https://github.com/cb-rnag/PPro-Extension-Zoom-Chat-To-Markers/blob/main/ZoomChatToMarkers/ReadMe.md).
 
-Download and checkout the project, then `cd` into the project folder and create a symlink using the `ZoomChatToMarkers/` folder to the directory where Adobe Premiere searches for extensions:
-
 Clone the project with `git`:
 
 ```sh
