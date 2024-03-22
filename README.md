@@ -6,7 +6,7 @@
 
 Download and checkout the project, then `cd` into the project folder and create a symlink using the `ZoomChatToMarkers/` folder to the directory where Adobe Premiere searches for extensions:
 
-```sh
+```console
 $ git clone https://github.com/cb-rnag/PPro-Extension-Zoom-Chat-To-Markers.git
 $ cd PPro-Extension-Zoom-Chat-To-Markers
 $ sudo ln -s "${PWD}/ZoomChatToMarkers" "/Library/Application Support/Adobe/CEP/extensions/ZoomChatToMarkers"
